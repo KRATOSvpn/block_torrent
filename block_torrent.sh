@@ -1,5 +1,16 @@
 #!/bin/bash
-iptables -A INPUT -s yts.mx -j DROP
+tput setaf 7 ; tput setab 4 ; tput bold ; printf '%35s%s%-20s\n' "Block Torrent 1.0" ; tput sgr0
+	echo ""
+	echo "Este é um script experimental. Use por sua conta e risco!"
+	echo "Este script irá bloquear alguns sites de Torrent."
+	echo "a lista será atualizada conforme o tempo ou surgimento de novos sites"
+	echo ""
+	read -p "Continuar com a instalação? [s/n]: " -e -i n resposta
+	if [[ "$resposta" = 's' ]]; then
+ echo "" 
+ echo "Iniciando bloqueio" 
+ echo "" 
+	echo "" >> iptables -A INPUT -s yts.mx -j DROP
 iptables -A INPUT -s yts.rs -j DROP
 iptables -A INPUT -s yts.vc -j DROP
 iptables -A INPUT -s yts.pm -j DROP
@@ -36,5 +47,51 @@ iptables -A INPUT -s thepiratebay.co.com -j DROP
 iptables -A INPUT -s pirateproxy-bay.com -j DROP
 iptables -A INPUT -s pirate-bay-proxy.org -j DROP
 iptables -A INPUT -s torrentdownloads.mrunblock.xyz -j DROP
-
-#finalizado
+ echo "" 
+ echo "PRONTO!" 
+	echo "Sites que foram bloqueados:"
+	echo " "
+echo "        yts.mx
+        yts.rs
+        yts.vc
+        yts.pm
+        yts.ai
+        yts.io
+        yts.ae
+        yts.ag
+        eztv.re
+        rarbg.to
+        1337x.to
+        yts.movie
+        yifyddl.co
+        zooqle.com
+        torlock.cc
+        torlock.com
+        demonoid.is
+        yts-movie.com
+        pirate-bay.in
+        dontorrent.app
+        thepiratebay.by
+        yify-movies.net
+        torrentz2eu.org
+        limetorrents.pro
+        thepiratebay.org
+        yts.unblockit.win
+        yts.nocensor.club
+        yifytorrenthd.net
+        tpbproxypirate.com
+        thepirates-bay.com
+        thepiratebay-3.org
+        thepiratebay.us.org
+        thepiratebay.us.com
+        thepiratebay.co.com
+        pirateproxy-bay.com
+        pirate-bay-proxy.org
+        torrentdownloads.mrunblock.xyz"
+echo ""
+	else
+		echo ""
+		echo "A instalação foi cancelada pelo usuário!"
+		echo ""
+	fi
+exit
